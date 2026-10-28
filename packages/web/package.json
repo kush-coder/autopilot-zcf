@@ -1,0 +1,34 @@
+{
+  "name": "@zcf/web",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The ZCF web UI served by `zcf ui`",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@zcf/core": "workspace:*",
+    "@zcf/ui-kit": "workspace:*"
+  },
+  "devDependencies": {
+    "@radix-ui/react-checkbox": "catalog:web",
+    "@radix-ui/react-collapsible": "catalog:web",
+    "@radix-ui/react-dialog": "catalog:web",
+    "@radix-ui/react-select": "catalog:web",
+    "@tailwindcss/vite": "catalog:web",
+    "@types/react": "catalog:ui",
+    "@types/react-dom": "catalog:web",
+    "@vitejs/plugin-react": "catalog:web",
+    "class-variance-authority": "catalog:web",
+    "clsx": "catalog:web",
+    "lucide-react": "catalog:web",
+    "react": "catalog:ui",
+    "react-dom": "catalog:web",
+    "tailwind-merge": "catalog:web",
+    "tailwindcss": "catalog:web",
+    "tw-animate-css": "catalog:web",
+    "vite": "catalog:web"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "zcf-monorepo",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@12.15.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx packages/cli/src/cli.ts",
+    "build": "pnpm -F @zcf/web build && pnpm -F zcf build",
+    "bench": "node scripts/bench-startup.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint && oxfmt --check",
+    "lint:fix": "oxlint --fix && oxfmt",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish",
+    "prepare": "husky",
+    "commitlint": "commitlint",
+    "docs:dev": "pnpm -F @zcf/docs dev",
+    "docs:build": "pnpm -F @zcf/docs build",
+    "docs:preview": "pnpm -F @zcf/docs preview",
+    "format": "oxfmt"
+  },
+  "devDependencies": {
+    "@changesets/cli": "catalog:tooling",
+    "@commitlint/cli": "catalog:tooling",
+    "@commitlint/config-conventional": "catalog:tooling",
+    "@commitlint/types": "catalog:tooling",
+    "@types/node": "catalog:types",
+    "@vitest/coverage-v8": "catalog:testing",
+    "husky": "catalog:tooling",
+    "lint-staged": "catalog:tooling",
+    "oxfmt": "catalog:build",
+    "oxlint": "catalog:build",
+    "oxlint-tsgolint": "catalog:build",
+    "tsx": "catalog:build",
+    "typescript": "catalog:build",
+    "vitest": "catalog:testing"
+  },
+  "lint-staged": {
+    "*.{ts,mts,mjs,js}": [
+      "oxlint --fix --no-error-on-unmatched-pattern",
+      "oxfmt --no-error-on-unmatched-pattern"
+    ],
+    "*.{json,jsonc,yaml,yml}": [
+      "oxfmt --no-error-on-unmatched-pattern"
+    ]
+  }
+}
